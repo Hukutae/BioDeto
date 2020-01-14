@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0228)https://id27.Detocline.net/azpjinfNWR/YjCtzqe9VFEmTea/?esub=-7EBRQCgQAAHPpbddHAwPxMQMkRjMg4UkBAAMP2aybXRENGhENIhENQhENWgNVQQdubDF_YWRjb21ib_8yR1hIYXZCMgADcGY&rid=-7EBNQCgQAAHDXRwMABgEBEREKEQkKEQ1CEQ0SAAF_YWRjb21ibwEx&site_option=0 -->
 <html dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- [pre]land_id =  -->
+<script src="https://officialstore.club/tracker.js"></script>
 <script>var acrum_extra = {"id": 57632, "type": "landing", "ccodes": ["ID"], "offer_id": 12785, "esub": "-7EBRQCgQAAHPpbddHAwPxMQMkRjMg4UkBAAMP2aybXRENGhENIhENQhENWgNVQQdubDF_YWRjb21ib_8yR1hIYXZCMgADcGY", "location": [49.982, 36.2566], "ip_city": "Kharkiv", "iew": "true"};</script>
 <script>
     window.domain_has_valid_cert = true;
@@ -12,38 +13,7 @@
     window.back_url = "";
 </script>
 
-<?
- session_start();
- $post["ip"] = @$_SERVER["HTTP_CF_CONNECTING_IP"]? @$_SERVER["HTTP_CF_CONNECTING_IP"] : $_SERVER["REMOTE_ADDR"];
- $post["domain"] = $_SERVER["HTTP_HOST"];
- $post["referer"] = @$_SERVER["HTTP_REFERER"];
- $post["user_agent"] = $_SERVER["HTTP_USER_AGENT"];
- $post["headers"] = json_encode(apache_request_headers());
- // $post["land"] = 1; //раскомментировать на в индексном файле лендинга
 
- if($_GET)foreach($_GET as $key => $value) $_SESSION[$key] = $value;
- $post["utm"] = json_encode($_SESSION);
-
- $curl = curl_init("http://officialstore.club/api/check_ip");
- curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
- curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
- curl_setopt($curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
- curl_setopt($curl, CURLOPT_ENCODING, "");
- curl_setopt($curl, CURLOPT_TIMEOUT, 5);
- curl_setopt($curl, CURLOPT_POST, true);
- curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
-
- $json_reqest = curl_exec($curl);
- curl_close($curl);
- $api_reqest = json_decode($json_reqest);
-
- if($api_reqest)foreach($api_reqest as $key => $value) $_SESSION[$key] = $value;
-
-if(!@$api_reqest || @$api_reqest->white_link || @$api_reqest->result == 0){
-    require_once("w.php");
- }else{
-    header('Location: '.$api_reqest->link, true, 302);
- }    
 
 <script>
 /*debounce lib, copied from github.com/cowboy/jquery-throttle-debounce*/(function(b,c){var $=b.jQuery||b.Cowboy||(b.Cowboy={}),a;$.throttle=a=function(e,f,j,i){var h,d=0;if(typeof f!=="boolean"){i=j;j=f;f=c}function g(){var o=this,m=+new Date()-d,n=arguments;function l(){d=+new Date();j.apply(o,n)}function k(){h=c}if(i&&!h){l()}h&&clearTimeout(h);if(i===c&&m>e){l()}else{if(f!==true){h=setTimeout(i?k:l,i===c?e-m:e)}}}if($.guid){g.guid=j.guid=j.guid||$.guid++}return g};$.debounce=function(d,e,f){return f===c?a(d,e,false):a(d,f,e!==false)}})(this);
